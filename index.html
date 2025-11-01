@@ -7,8 +7,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg1:#0f172a; /* deep navy */
-      --bg2:#082032; /* tealish */
+      --bg1:#0f172a;
+      --bg2:#082032;
       --accent:#00f5d4;
       --accent-2:#7c3aed;
       --panel: rgba(255,255,255,0.04);
@@ -17,53 +17,23 @@
     }
     *{box-sizing:border-box}
     html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:linear-gradient(160deg,var(--bg1),var(--bg2));color:#e6eef8}
-    .wrap{
-      min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px;
-    }
-
-    .card{
-      width:100%;max-width:980px;border-radius:18px;padding:20px;display:grid;grid-template-columns:1fr 360px;gap:20px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));box-shadow:0 8px 30px rgba(2,6,23,0.7);backdrop-filter: blur(6px);
-    }
-
-    .left{
-      padding:18px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;position:relative
-    }
-
-    img.viewer{
-        display:block;width:100%;height:100%;object-fit:cover;border-radius:12px;
-        background:linear-gradient(180deg,#071426 0%, #052435 100%);
-        box-shadow: inset 0 2px 8px rgba(0,0,0,0.6), 0 6px 18px rgba(2,6,23,0.6);
-        border:0;
-    }
-
-    .right{
-      padding:18px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);display:flex;flex-direction:column;gap:12px;align-items:stretch
-    }
-
+    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px;}
+    .card{width:100%;max-width:980px;border-radius:18px;padding:20px;display:grid;grid-template-columns:1fr 360px;gap:20px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));box-shadow:0 8px 30px rgba(2,6,23,0.7);backdrop-filter: blur(6px);}
+    .left{padding:18px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;position:relative}
+    img.viewer{display:block;width:100%;height:100%;object-fit:cover;border-radius:12px;background:linear-gradient(180deg,#071426 0%, #052435 100%);box-shadow: inset 0 2px 8px rgba(0,0,0,0.6), 0 6px 18px rgba(2,6,23,0.6);border:0;}
+    .right{padding:18px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);display:flex;flex-direction:column;gap:12px;align-items:stretch}
     h1{font-family:'Press Start 2P',monospace;font-size:14px;margin:0;color:var(--accent);letter-spacing:1px}
     p.lead{margin:6px 0 12px;color:var(--muted);font-size:13px}
-
     .panel{padding:12px;border-radius:10px;background:var(--panel);border:1px solid rgba(255,255,255,0.03)}
-
     .row{display:flex;gap:10px;align-items:center}
-
     .big-number{font-family:'Press Start 2P',monospace;font-size:22px;color:var(--accent-2)}
-
     .controls{display:flex;flex-direction:column;gap:8px}
     button.btn{padding:10px 14px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#051226;font-weight:700;cursor:pointer;box-shadow:0 6px 16px rgba(124,58,237,0.12);}
     button.ghost{background:transparent;border:1px solid rgba(255,255,255,0.05);color:var(--muted);padding:8px;border-radius:10px;cursor:pointer}
     label.small{font-size:12px;color:var(--muted)}
-
     .help{font-size:12px;color:var(--muted);line-height:1.4}
-
     .footer{font-size:11px;color:rgba(255,255,255,0.45);text-align:center;margin-top:10px}
-
-    /* small screens */
-    @media (max-width:880px){
-      .card{grid-template-columns:1fr;}
-      .right{order:2}
-      .left{order:1}
-    }
+    @media (max-width:880px){.card{grid-template-columns:1fr;}.right{order:2}.left{order:1}}
   </style>
 </head>
 <body>
@@ -71,7 +41,7 @@
     <div class="card">
       <div class="left panel">
         <h1>🖼️ THUMBNAIL VIEWER</h1>
-        <p class="lead">Paste a **YouTube link or ID** below to see its thumbnail image.</p>
+        <p class="lead">Paste a <b>YouTube link or ID</b> below to see its thumbnail image.</p>
 
         <div style="width:100%">
           <div style="position:relative;width:100%;padding-top:56.25%;">
@@ -81,10 +51,9 @@
 
         <div style="display:flex;gap:10px;width:100%;margin-top:10px;align-items:center;justify-content:space-between">
           <div class="panel" style="padding:10px;border-radius:10px;min-width:140px;display:flex;flex-direction:column;align-items:flex-start">
-            <div style="font-size:12px;color:var(--muted)">Image Link</div>
-            <a id="imageLink" class="big-number" style="font-size:16px;text-decoration:none;color:var(--accent)">View Link</a>
+            <div style="font-size:12px;color:var(--muted)">Video Link</div>
+            <a id="imageLink" target="_blank" class="big-number" style="font-size:16px;text-decoration:none;color:var(--accent)">View Link</a>
           </div>
-
           <div style="display:flex;gap:8px">
             <button id="loadBtn" class="btn">Show Thumbnail</button>
           </div>
@@ -99,12 +68,14 @@
           <input id="videoInput" type="text" placeholder="YouTube URL or ID" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
 
           <label class="small">Controls</label>
-          <div class="help">Enter a YouTube URL and click **Show Thumbnail**. The image link will appear below the thumbnail.</div>
+          <div class="help">Enter a YouTube URL and click <b>Show Thumbnail</b>. Then click <b>View Link</b> to open the video.</div>
         </div>
 
         <div class="panel">
           <div style="font-size:13px;font-weight:600;margin-bottom:8px">How it works</div>
-          <div class="help">We use the video ID to construct a direct link to the **high-quality YouTube thumbnail image** (`https://img.youtube.com/vi/[VIDEO_ID]/maxresdefault.jpg`).
+          <div class="help">We extract the video ID and show its thumbnail using 
+            <code>https://img.youtube.com/vi/[ID]/maxresdefault.jpg</code>.  
+            The “View Link” opens the real YouTube video now.
           </div>
         </div>
 
@@ -126,10 +97,10 @@
     const videoInput = document.getElementById('videoInput');
     const imageLink = document.getElementById('imageLink');
 
-    // Function to extract video ID (kept the same)
+    // Extract the YouTube video ID from link or short ID
     function extractVideoId(input){
       if(!input) return null;
-      const url = input.trim();
+      var url = input.trim();
       const short = url.match(/^[a-zA-Z0-9_-]{11}$/);
       if(short) return short[0];
       const q = url.match(/[?&]v=([a-zA-Z0-9_-]{11})/);
@@ -141,11 +112,12 @@
       return null;
     }
 
-    // Function to update the image source
+    // Update thumbnail and link to real video
     function updateThumbnail(id){
         const imageUrl = `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
+        const videoUrl = `https://www.youtube.com/watch?v=${id}`;
         imageViewer.src = imageUrl;
-        imageLink.href = imageUrl;
+        imageLink.href = videoUrl;
         imageLink.textContent = 'View Link';
     }
 
@@ -155,17 +127,20 @@
       updateThumbnail(id);
     });
 
-    // download HTML (kept the same)
+    // Download current HTML file
     document.getElementById('downloadBtn').addEventListener('click', ()=>{
       const html = '<!doctype html>\n' + document.documentElement.outerHTML;
       const blob = new Blob([html],{type:'text/html'});
       const url = URL.createObjectURL(blob);
-      const a = document.createElement('a'); a.href = url; a.download = 'viewer.html'; a.click(); URL.revokeObjectURL(url);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'viewer.html';
+      a.click();
+      URL.revokeObjectURL(url);
     });
 
-    // initial values
+    // Initial preview
     videoInput.value = 'https://youtu.be/dQw4w9WgXcQ';
-    updateThumbnail('dQw4w9WgXcQ'); // Load initial image
+    updateThumbnail('dQw4w9WgXcQ');
   })();
   </script>
 </body>
